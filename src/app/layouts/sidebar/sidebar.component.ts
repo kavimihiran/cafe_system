@@ -1,19 +1,20 @@
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { MenuItems } from 'src/app/shared/menu-items';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnDestroy {
-
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;
 
   constructor(
     changeDetectorRef: ChangeDetectorRef,
-    media: MediaMatcher
+    media: MediaMatcher,
+    public menuItems: MenuItems
   ) {
     this.mobileQuery = media.matchMedia('(min-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -23,5 +24,4 @@ export class SidebarComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-
 }

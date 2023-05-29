@@ -1,1 +1,9 @@
-<p>sidebar works!</p>
+<mat-nav-list appAccordion>
+    <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuItems()" routerLinkActive="selected" group="{{menuitem.state}}">
+        <a appAccordionToggle [routerLink]="['/cafe',menuitem.state]" *ngIf="(menuitem.role === '')">
+            <mat-icon>{{menuitem.icon}}</mat-icon>
+            <span>{{menuitem.name}}</span>
+            <span fxFlex></span>
+        </a>
+    </mat-list-item>
+</mat-nav-list>

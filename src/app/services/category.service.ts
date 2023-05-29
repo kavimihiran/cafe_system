@@ -5,26 +5,24 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class CategoryService {
   url = environment.apiUrl;
 
   constructor(private httpClient: HttpClient) {}
 
-  signup(data: any) {
-    return this.httpClient.post(this.url + '/user/signup', data, {
+  add(data: any) {
+    return this.httpClient.post(this.url + '/category/add/', data, {
       headers: new HttpHeaders().set('content-type', 'application/json'),
     });
   }
 
-  forgotPassword(data: any) {
-    return this.httpClient.post(this.url + '/user/forgotPassword', data, {
+  update(data: any) {
+    return this.httpClient.patch(this.url + '/category/update/', data, {
       headers: new HttpHeaders().set('content-type', 'application/json'),
     });
   }
 
-  login(data: any) {
-    return this.httpClient.post(this.url + '/user/login', data, {
-      headers: new HttpHeaders().set('content-type', 'application/json'),
-    });
+  getCategorys() {
+    return this.httpClient.get(this.url + '/category/get/');
   }
 }
