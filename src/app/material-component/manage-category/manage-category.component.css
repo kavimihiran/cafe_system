@@ -1,0 +1,14 @@
+ .float-right{
+    float: right;
+ }
+
+ mat-card{
+    padding:20px;
+ }
+ .max{
+    max-width: 1500px;
+ }
+
+ table{
+    width: 100%;
+ }
