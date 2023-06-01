@@ -21,7 +21,7 @@ router.post("/add", (req, res) => {
 
 router.get("/get", (req, res, next) => {
   var query =
-    "Select p.id,p.name,p.description,p.price,p.status,c.id as categoryId,c.name as categoryName from product as p INNER JOIN catergory as c where p.categoryId = c.id";
+    "Select p.id,p.name,p.description,p.price,p.status,c.id as categoryId,c.name as categoryName from product as p INNER JOIN category as c ON p.categoryId = c.id";
   connection.query(query, (err, results) => {
     if (!err) {
       return res.status(200).json(results);
